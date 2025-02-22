@@ -23,6 +23,11 @@ const userSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+
+    profilePic: {
+        type: String,
+        default: 'default.webp'
+    },
     posts: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post'
@@ -30,4 +35,3 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);
-
