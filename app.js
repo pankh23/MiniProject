@@ -9,8 +9,9 @@ const mongoose = require('mongoose');
 const crypto = require('crypto');
 const path = require('path');
 const multer = require('multer');
+require('dotenv').config(); // Add this line to load environment variables
 
-mongoose.connect('mongodb://127.0.0.1:27017/miniproject')
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }) // Use environment variable for MongoDB URI
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('Could not connect to MongoDB:', err));
 
